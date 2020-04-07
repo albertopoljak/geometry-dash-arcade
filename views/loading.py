@@ -1,6 +1,8 @@
 import arcade
 from views.game import GameView
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from threading import Thread
+import time
 
 
 class LoadingView(arcade.View):
@@ -24,13 +26,15 @@ class LoadingView(arcade.View):
         self.progress_message = "test"
 
     def on_show(self):
-        self.start_loading()
+        Thread(target=self.start_loading).start()
 
     def start_loading(self):
         game_view = GameView()
         for message in game_view.setup(1):
             self.progress_message = message
             self.progress += 1
+            time.sleep(0.3)  # to get loading effect in case of fast load
+
         self.window.show_view(game_view)
 
     def on_draw(self):
