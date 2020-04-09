@@ -17,7 +17,7 @@
  </tileset>
  <layer id="2" name="obstacles" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt00EKwCAMBEAPxf8/uXcPmopYIzMQBPEgG7YUAAAAAIDzPc1kVAfn6Xr5Z9xLL/cVO8mWx99GmWfpyS0iec/sRC/mRLPWkz2+5Bx5u7sXtZn2PpvVf34B540Arw==
+   eJzt00EKgDAMBMAetP9/svccNIqtjcxAoJQeyoZtDQAAAABgfVuYinrivLKz/CvuZXTu1fL42tU+qvTkL0blrRfPZPehJ3O8nfPsXvQw8b6aO3/eE28OVvEAnA==
   </data>
  </layer>
  <layer id="3" name="traps" width="100" height="20">
