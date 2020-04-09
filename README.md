@@ -9,12 +9,12 @@ Create new project, initial settings are:
 > Tile layer format: Base64 (zlib compressed)*
 >
 > Tile render order: Right Down*
-
+>
 > Map size
 > - Fixed 
 > - Width: your choice (this is your level "size")
 > - Height: 20*
-
+>
 > Tile size: 32*32
 
 
@@ -34,14 +34,32 @@ Now load tiles to your tileset.
 
 You can start placing tiles, be sure to select proper layer when placing.
 
-Recommendations*:
+### Tile placing recommendations*:
 
 Default player vertical jump height is around 2.5 block, so put platforms in the heights of 2.
 If there's a jump-pad then he can jump up to 7 blocks.
 
-The furthest the player can vertically jump is 1 block, with jump-pad this becomes 2 blocks.
+The furthest the player can horizontally jump is 1 block, with jump-pad this becomes 2 blocks.
 
 If you want to have a roof you need to have 4 tiles of space (if the player touches the roof the game
 will register this as a collision and you will lose).
 
 *these recommendations were done with default constants/level speed of 5 in mind.
+
+
+# License
+
+See [LICENSE.md](LICENSE.md)
+
+Code is licensed under MIT (c)  Alberto Poljak
+
+#### Assets attribution:
+
+##### Art:
+Forest parallax background: Digital Moons https://digitalmoons.itch.io/parallax-forest-background
+
+Button art: https://craftpix.net/freebies/free-buttons-2d-game-objects/
+
+##### Music:
+"Guitar-Mayhem-5.mp3" by Eric Matyas www.soundimage.org
+
