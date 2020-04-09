@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" name="level_1" tilewidth="32" tileheight="32" tilecount="4" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="3">
+   <image width="32" height="32" source="../images/planet.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../images/spikes.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="../images/planetMid.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../images/jump_pad.png"/>
+  </tile>
+ </tileset>
+ <layer id="2" name="obstacles" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt08EKgCAMAFAP2f9/cnQdlkaCwt6DXXQobq4UAAAAAID9HSGyqwvufKt/tr7Et7b6kakeu1kxHxn0/vTTfh3IYdzfGpqPOUb70MurH86a5QwR1zO7+3EB3VIAkA==
+  </data>
+ </layer>
+ <layer id="3" name="traps" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0DkKACAMBMA0/v/L9oK6imAzAykCIVcVAAAAAAAAAL+0IZL6VX4zO+01qz3dYXdr+ovXOnFwAFE=
+  </data>
+ </layer>
+ <layer id="4" name="jump_pads" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzyEBAAAMw7Cx+3d8ESMDCS1qAgAAAAAAAMCiK/ui5acHOigAHQ==
+  </data>
+ </layer>
+</map>
