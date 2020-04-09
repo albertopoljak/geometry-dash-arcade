@@ -1,6 +1,22 @@
+# Geometry dash arcade learning
+
+I made this game to practise Python [Arcade library](https://arcade.academy/) for the
+upcoming Python Discord game jam.
+
+It features main menu, loading screen, modular parallax background, traps, jump-pads etc
+
+Since it was made for practise and to learn Arcade this was never
+intended to be fully playable game. However the first level is there altho there is no win 
+condition.
+
+If I feel like it I might update it in future to add new things.
+
+
 # Map editor
 
-Use [Tiled](https://www.mapeditor.org/)
+Use [Tiled map editor](https://www.mapeditor.org/)
+
+You can either edit the existing map, or create new one by following this guide:
 
 Create new project, initial settings are:
 
@@ -30,7 +46,9 @@ Create new tile layer named `traps` - these represents blocks that will kill the
 Create new tile layer named `jump_pads` - these represent blocks that will propel player 
 at 2x jump height if he touches them.
 
-Now load tiles to your tileset.
+Create your tileset - choose `Collection of images` and check `Embed in map` to True
+
+(note that the program will make the source path relative to the current tmx save directory)
 
 You can start placing tiles, be sure to select proper layer when placing.
 
