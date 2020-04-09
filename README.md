@@ -5,6 +5,9 @@ upcoming Python Discord game jam.
 
 It features main menu, loading screen, modular parallax background, traps, jump-pads etc
 
+![alt text](https://raw.githubusercontent.com/albertopoljak/geometry-dash-arcade/master/game_preview.png)
+
+
 Since it was made for practise and to learn Arcade this was never
 intended to be fully playable game. However the first level is there altho there is no win 
 condition.
