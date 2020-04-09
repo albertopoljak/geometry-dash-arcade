@@ -27,7 +27,9 @@ class FPSCounter:
 class DebugView(arcade.View):
     """
     Extend your view class with this one and call super().on_draw() at the end of
-    the on_draw method if you've overwritten it.
+    the on_draw method (if you've overwritten it).
+
+    This view will show processing time, drawing time and FPS.
     """
     def __init__(self):
         super().__init__()

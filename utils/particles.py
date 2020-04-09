@@ -8,7 +8,7 @@ from typing import Tuple
 class EmitterOnDemand(arcade.Emitter):
     """
     Similar to base Emitter class only difference is that emit and update are separated.
-    Aka the update no longer calls emit, you need to do it manually.
+    Aka the update method no longer calls emit method, you need to do it manually.
     """
 
     def emit(self):
@@ -27,6 +27,9 @@ class EmitterOnDemand(arcade.Emitter):
 
 
 class PlayerDashTrail(EmitterOnDemand):
+    """
+    Particle emitter built specifically for player dash trail.
+    """
     PARTICLE_LIFETIME = 1.0
 
     def __init__(self, center_position: Tuple[float, float]):
