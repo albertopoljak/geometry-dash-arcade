@@ -14,28 +14,27 @@ level_data_handler = LevelDataHandler()
 class GameView(DebugView):
     def __init__(self):
         super().__init__()
+        self.current_level = 1
         self.view_bottom = 0
         self.view_left = 0
+        self.level_speed = 1
         self.obstacle_list = None
         self.trap_list = None
         self.jump_pad_list = None
         self.background_list = None
-        self.current_level = 1
-        self.level_speed = 1
-        self.player = None
         self.music = None
+        self.player = None
         self.physics_engine = None
         self.player_dash_trail = None
 
     def setup(self, level_number: int):
+        self.current_level = level_number
+
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
 
         self.level_speed = level_data_handler.get_level_speed(str(level_number))
-
-        floor = arcade.Sprite("assets/images/floor.png", 2)
-        floor.position = (SCREEN_WIDTH // 2, 0)
 
         yield "Loading map"
         my_map = arcade.tilemap.read_tmx(f"assets/maps/level_{level_number}.tmx")
@@ -50,6 +49,9 @@ class GameView(DebugView):
         self.jump_pad_list = arcade.tilemap.process_layer(my_map, "jump_pads")
         for jump_pad in self.jump_pad_list:
             jump_pad.change_x = self.level_speed
+
+        floor = arcade.Sprite("assets/images/floor.png", 2)
+        floor.position = (SCREEN_WIDTH // 2, 0)
 
         # Move the loaded map sprites x to the right so they "come" to us.
         # Move the loaded map sprites y up so they start at floor height.
@@ -101,21 +103,23 @@ class GameView(DebugView):
         # We're making obstacles move to player, the player X coordinate will be static.
         # For further comments this will be referred as 'player X coordinate hack'
         self.player.center_x = PLAYER_START_X
+
         if arcade.check_for_collision_with_list(self.player, self.trap_list):
             print("You felt into trap")
             self.reset_level()
         elif arcade.check_for_collision_with_list(self.player, self.jump_pad_list):
             self.player.jump(big_jump=True)
 
-        # Call engine update after collision check and player X coordinate hack in order for those to work properly.
         collision_sprite_list = self.physics_engine.update()
         for collision_sprite in collision_sprite_list:
             if collision_sprite in self.obstacle_list:
                 self.player_dash_trail.emit()
 
-        self.player_dash_trail.update()
         self.trap_list.update()
         self.jump_pad_list.update()
+        self.background_list.update()
+        self.player_dash_trail.update()
+        self.viewport_update()
 
         # Using our player X coordinate hack when we hit a moving wall the Physics engine will try to move us
         # (since everything is scrolling right to left we will be moved left) but since we're resetting the player X
@@ -130,16 +134,14 @@ class GameView(DebugView):
             print("You somehow managed to fell off screen.")
             self.reset_level()
 
-        self.background_list.update()
-        self.viewport_update()
-
     def reset_level(self):
         arcade.stop_sound(self.music)
-        # temporal for testing load view, exhaust generator
+        # Exhaust generator since we don't need load view for resetting
         for _ in self.setup(self.current_level):
             pass
 
     def viewport_update(self):
+        # Flag variable to mark if we should update viewport
         changed = False
 
         # Scroll up

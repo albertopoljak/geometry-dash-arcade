@@ -11,3 +11,6 @@ TOP_VIEWPORT_MARGIN = 100
 # Player start position
 PLAYER_START_X = 0.2 * SCREEN_WIDTH
 PLAYER_START_Y = 0.1 * SCREEN_HEIGHT
+
+# How many things are there to load in game
+GAME_LOAD_COUNT = 3

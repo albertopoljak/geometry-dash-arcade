@@ -9,7 +9,7 @@ class HoverButton(arcade.TextButton):
             self.mouse_hover = False
 
     def set_mouse_hover(self, x, y):
-        """Set mouse_hover attribute to True if coordinates hover over the button, False othervise."""
+        """Set mouse_hover attribute to True if coordinates hover over the button, False otherwise."""
         if x > self.center_x + self.width / 2 or x < self.center_x - self.width / 2:
             self._on_hover_out()
             return
@@ -37,15 +37,12 @@ class HoverButton(arcade.TextButton):
 
 
 class ActionButton(HoverButton):
-    def __init__(self, action_function: callable,
-                 x=SCREEN_WIDTH//2,
-                 y=0.55*SCREEN_HEIGHT,
-                 width=160, height=80,
-                 theme=None):
+    def __init__(self, *, action_function: callable, x=SCREEN_WIDTH//2, y=0.55*SCREEN_HEIGHT,
+                 width=160, height=80, button_text="Play", theme=None):
         """
         :param action_function: Callable function reference to call on button press.
         """
-        super().__init__(x, y, width, height, "Play", theme=theme)
+        super().__init__(x, y, width, height, button_text, theme=theme)
         self.action_function = action_function
 
     def on_press(self):

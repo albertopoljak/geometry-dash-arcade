@@ -15,6 +15,15 @@ condition.
 If I feel like it I might update it in future to add new things.
 
 
+# Running
+
+Python 3.6 or 3.7 recommended (at the moment of writing don't use anything above 3.7)
+
+All you need is Arcade library, see [install instructions](https://arcade.academy/installation.html)
+
+Then run the main.py file
+
+
 # Map editor
 
 Use [Tiled map editor](https://www.mapeditor.org/)
@@ -76,11 +85,11 @@ Code is licensed under MIT (c)  Alberto Poljak
 
 #### Assets attribution:
 
-##### Art:
+#### Art:
 Forest parallax background: Digital Moons https://digitalmoons.itch.io/parallax-forest-background
 
 Button art: https://craftpix.net/freebies/free-buttons-2d-game-objects/
 
-##### Music:
+#### Music:
 "Guitar-Mayhem-5.mp3" by Eric Matyas www.soundimage.org
 

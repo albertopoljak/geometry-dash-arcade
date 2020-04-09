@@ -1,6 +1,6 @@
 import arcade
 from views.game import GameView
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, GAME_LOAD_COUNT
 from threading import Thread
 import time
 
@@ -8,7 +8,7 @@ import time
 class LoadingView(arcade.View):
     def __init__(self, *, level: int):
         super().__init__()
-        self.total = 0
+        self.level = level
         self.progress = 0
         self.title_text = None
         self.background = None
@@ -17,7 +17,6 @@ class LoadingView(arcade.View):
         self.setup()
 
     def setup(self):
-        self.total = 3  # temp hardcoded for testing
         self.progress = 0
         self.title_text = arcade.draw_text("Loading", SCREEN_WIDTH//2, SCREEN_HEIGHT*0.8,
                                            arcade.color.WHITE, font_size=50, anchor_x="center")
@@ -29,12 +28,12 @@ class LoadingView(arcade.View):
         self.progress_message = "Initializing"
 
     def on_show(self):
-        Thread(target=self.start_loading).start()
+        Thread(target=self.start_loading, args=(self.level,)).start()
 
-    def start_loading(self):
+    def start_loading(self, level: int):
         game_view = GameView()
-        for message in game_view.setup(1):
-            if self.progress < self.total:
+        for message in game_view.setup(level):
+            if self.progress < GAME_LOAD_COUNT:
                 self.progress_message = message
                 self.progress += 1
                 time.sleep(1)  # to get loading effect in case of fast load
@@ -51,34 +50,26 @@ class LoadingView(arcade.View):
         arcade.draw_text(self.progress_message, SCREEN_WIDTH//2, SCREEN_HEIGHT*0.6,
                          arcade.color.WHITE, font_size=18, anchor_x="center")
 
-        color1 = (255, 215, 0, 255)
-        color2 = (255, 215, 0, 0)
-        colors = (color2, color1, color1, color2)
+        gradient_color1 = (255, 215, 0, 255)
+        gradient_color2 = (255, 215, 0, 0)
+        gradient_colors = (gradient_color2, gradient_color1, gradient_color1, gradient_color2)
 
-        rectangle_x_left = SCREEN_WIDTH * 0.1
-        rectangle_y_down = SCREEN_HEIGHT * 0.45
-        rectangle_y_up = SCREEN_HEIGHT * 0.55
+        loading_bar_x_left = SCREEN_WIDTH * 0.1
+        loading_bar_y_down = SCREEN_HEIGHT * 0.45
+        loading_bar_y_up = SCREEN_HEIGHT * 0.55
 
-        progress_x = SCREEN_WIDTH * 0.8 * (self.progress / self.total) + SCREEN_WIDTH * 0.1
+        loading_bar_progress_x = SCREEN_WIDTH * 0.8 * (self.progress / GAME_LOAD_COUNT) + SCREEN_WIDTH * 0.1
 
-        points = ((rectangle_x_left, rectangle_y_down),
-                  (progress_x, rectangle_y_down),
-                  (progress_x, rectangle_y_up),
-                  (rectangle_x_left, rectangle_y_up))
+        points = ((loading_bar_x_left, loading_bar_y_down),
+                  (loading_bar_progress_x, loading_bar_y_down),
+                  (loading_bar_progress_x, loading_bar_y_up),
+                  (loading_bar_x_left, loading_bar_y_up))
 
-        rect = arcade.create_rectangle_filled_with_colors(points, colors)
-        rect.draw()
+        loading_bar = arcade.create_rectangle_filled_with_colors(points, gradient_colors)
+        loading_bar.draw()
 
-        self.star.center_x = progress_x
+        self.star.center_x = loading_bar_progress_x
         self.star.draw()
 
     def on_update(self, delta_time: float):
         self.star.update()
-
-    def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
-        if self.progress < self.total:
-            self.progress_message = "test"
-            self.progress += 1
-            time.sleep(1)  # to get loading effect in case of fast load
-        else:
-            self.progress_message = "Finishing.."

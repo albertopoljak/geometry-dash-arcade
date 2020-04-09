@@ -7,8 +7,8 @@ from typing import Tuple
 
 class EmitterOnDemand(arcade.Emitter):
     """
-    Similar to base Emitter class only difference is that emit and update are separated.
-    Aka the update method no longer calls emit method, you need to do it manually.
+    Similar to base Emitter class only difference is that methods _emit() and update() are separated.
+    Aka the update method no longer calls _emit() method, you need to do it manually.
     """
 
     def emit(self):

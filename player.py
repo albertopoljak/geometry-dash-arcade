@@ -12,7 +12,7 @@ class Player(arcade.Sprite):
     def jump(self, *, big_jump=False):
         """
         Make the player jump and handles his rotation.
-        :param big_jump: bool, if true the jump will be 1.5 times more powerful (example on jump-pads)
+        :param big_jump: bool, if true the jump will be 1.6 times more powerful (useful for jump-pads)
         """
         if big_jump:
             self.change_y = PLAYER_JUMP_SPEED * 1.6

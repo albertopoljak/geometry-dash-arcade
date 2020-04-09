@@ -14,7 +14,7 @@ class MenuView(arcade.View):
     def setup(self):
         self.background = arcade.load_texture(":resources:images/backgrounds/abstract_1.jpg")
         self.setup_button_theme()
-        self.button_list.append(ActionButton(self.play, theme=self.button_theme))
+        self.button_list.append(ActionButton(action_function=self.play, button_text="Play", theme=self.button_theme))
 
     def setup_button_theme(self):
         self.button_theme = arcade.Theme()
