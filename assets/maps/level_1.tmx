@@ -17,17 +17,17 @@
  </tileset>
  <layer id="2" name="obstacles" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1MsKgCAQhWEXae//xiG0iMHmkpBN/B+IYC7kHKZSAAAAAAAAAOD7NrEyasYeUeefE6bln7EXLfdoJ6M+suWxmpV5pJMV8/E3nry9nVz7YC6e8Wbtucd8zIv8j6y7vY+356KJJc+z2M+9v7nerBFtBvq3A5b8APw=
+   eJzt00EKwCAMBEAPxf8/uXcPmopYIzMQBPEgG7YUAAAAAIDzPc1kVAfn6Xr5Z9xLL/cVO8mWx99GmWfpyS0iec/sRC/mRLPWkz2+5Bx5u7sXtZn2PpvVf34B540Arw==
   </data>
  </layer>
  <layer id="3" name="traps" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt0DkKACAMBMA0/v/L9oK6imAzAykCIVcVAAAAAAAAAL+0IZL6VX4zO+01qz3dYXdr+ovXOnFwAFE=
+   eJzt0UEKwCAMBEAv+f+XvcaCmNKDKcyASEAxZscAAAAAAOBv4nYDLOTRizx6kUcv8ugl0p5X9d6ufttDPOovb1d7Of21Oot8tjLH05sTHjsAlw==
   </data>
  </layer>
  <layer id="4" name="jump_pads" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzzERAAAIxLDf8O8YCUwcDImCNgEAAAAAAADgo7oOWDA9XT43MPgAFg==
+   eJzt0DERAAAIAzE2/DtGAiwcDImCfiMAAAAAAAAA+CivByzomibNW78UM2AAHQ==
   </data>
  </layer>
 </map>
