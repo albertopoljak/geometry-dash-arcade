@@ -9,8 +9,16 @@ class Player(arcade.Sprite):
         super().__init__(image)
         self.jump_sound = arcade.load_sound(jump_sound)
 
-    def jump(self):
-        self.change_y = PLAYER_JUMP_SPEED
+    def jump(self, *, big_jump=False):
+        """
+        Make the player jump and handles his rotation.
+        :param big_jump: bool, if true the jump will be 1.5 times more powerful (example on jump-pads)
+        """
+        if big_jump:
+            self.change_y = PLAYER_JUMP_SPEED * 1.6
+        else:
+            self.change_y = PLAYER_JUMP_SPEED
+
         self.angle -= self.ANGLE_CHANGE  # to kick-start update
         self.change_angle = - self.ANGLE_CHANGE
         arcade.play_sound(self.jump_sound)

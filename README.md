@@ -34,13 +34,14 @@ Now load tiles to your tileset.
 
 You can start placing tiles, be sure to select proper layer when placing.
 
-Recommendations:
+Recommendations*:
 
-Default player jump height is around 2.5 block, so put platforms in the heights of 2.
-If there's a jump-pad then height of 4 is good.
+Default player vertical jump height is around 2.5 block, so put platforms in the heights of 2.
+If there's a jump-pad then he can jump up to 7 blocks.
 
 The furthest the player can vertically jump is 1 block, with jump-pad this becomes 2 blocks.
 
 If you want to have a roof you need to have 4 tiles of space (if the player touches the roof the game
-will register this as a collision and you will lose), 8 on parts with jum-pad.
+will register this as a collision and you will lose).
 
+*these recommendations were done with default constants/level speed of 5 in mind.

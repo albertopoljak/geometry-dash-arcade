@@ -17,7 +17,7 @@
  </tileset>
  <layer id="2" name="obstacles" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt08EKgCAMAFAP2f9/cnQdlkaCwt6DXXQobq4UAAAAAID9HSGyqwvufKt/tr7Et7b6kakeu1kxHxn0/vTTfh3IYdzfGpqPOUb70MurH86a5QwR1zO7+3EB3VIAkA==
+   eJzt1MsKgCAQhWEXae//xiG0iMHmkpBN/B+IYC7kHKZSAAAAAAAAAOD7NrEyasYeUeefE6bln7EXLfdoJ6M+suWxmpV5pJMV8/E3nry9nVz7YC6e8Wbtucd8zIv8j6y7vY+356KJJc+z2M+9v7nerBFtBvq3A5b8APw=
   </data>
  </layer>
  <layer id="3" name="traps" width="100" height="20">
@@ -27,7 +27,7 @@
  </layer>
  <layer id="4" name="jump_pads" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzyEBAAAMw7Cx+3d8ESMDCS1qAgAAAAAAAMCiK/ui5acHOigAHQ==
+   eJztzzERAAAIxLDf8O8YCUwcDImCNgEAAAAAAADgo7oOWDA9XT43MPgAFg==
   </data>
  </layer>
 </map>

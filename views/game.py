@@ -49,7 +49,6 @@ class GameView(DebugView):
 
         self.jump_pad_list = arcade.tilemap.process_layer(my_map, "jump_pads")
         for jump_pad in self.jump_pad_list:
-            print(jump_pad.center_x)
             jump_pad.change_x = self.level_speed
 
         # Move the loaded map sprites x to the right so they "come" to us.
@@ -105,6 +104,8 @@ class GameView(DebugView):
         if arcade.check_for_collision_with_list(self.player, self.trap_list):
             print("You felt into trap")
             self.reset_level()
+        elif arcade.check_for_collision_with_list(self.player, self.jump_pad_list):
+            self.player.jump(big_jump=True)
 
         # Call engine update after collision check and player X coordinate hack in order for those to work properly.
         collision_sprite_list = self.physics_engine.update()
