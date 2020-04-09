@@ -114,6 +114,7 @@ class GameView(DebugView):
 
         self.player_dash_trail.update()
         self.trap_list.update()
+        self.jump_pad_list.update()
 
         # Using our player X coordinate hack when we hit a moving wall the Physics engine will try to move us
         # (since everything is scrolling right to left we will be moved left) but since we're resetting the player X
