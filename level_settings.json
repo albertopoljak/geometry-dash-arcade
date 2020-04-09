@@ -1,6 +1,6 @@
 {
   "1": {
-    "level_speed": 3,
+    "level_speed": 5,
     "background_parallax_list": [
       {"sprite": "assets/images/level_1/10_Sky.png", "scroll_x_speed": -0.1, "y_coord": 300},
       {"sprite": "assets/images/level_1/09_Forest.png", "scroll_x_speed": -0.15, "y_coord": 300},
@@ -11,7 +11,7 @@
       {"sprite": "assets/images/level_1/04_Forest.png", "scroll_x_speed": -0.7, "y_coord": 300},
       {"sprite": "assets/images/level_1/03_Particles.png", "scroll_x_speed": -1, "y_coord": 300},
       {"sprite": "assets/images/level_1/02_Bushes.png", "scroll_x_speed": -2, "y_coord": 300},
-      {"sprite": "assets/images/level_1/01_Mist.png", "scroll_x_speed": -2, "y_coord": 300}
+      {"sprite": "assets/images/level_1/01_Mist.png", "scroll_x_speed": -5, "y_coord": 300}
     ]
   }
 }

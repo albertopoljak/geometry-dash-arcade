@@ -10,6 +10,7 @@ class LoadingView(arcade.View):
         super().__init__()
         self.total = 0
         self.progress = 0
+        self.title_text = None
         self.background = None
         self.star = None
         self.progress_message = None
@@ -18,12 +19,14 @@ class LoadingView(arcade.View):
     def setup(self):
         self.total = 3  # temp hardcoded for testing
         self.progress = 0
+        self.title_text = arcade.draw_text("Loading", SCREEN_WIDTH//2, SCREEN_HEIGHT*0.8,
+                                           arcade.color.WHITE, font_size=50, anchor_x="center")
         self.background = arcade.load_texture(":resources:images/backgrounds/stars.png")
         self.star = arcade.Sprite(":resources:images/items/star.png", 1.5)
         self.star.center_x = SCREEN_WIDTH * 0.1
         self.star.center_y = SCREEN_HEIGHT // 2
         self.star.change_angle = -3
-        self.progress_message = "test"
+        self.progress_message = "Initializing"
 
     def on_show(self):
         Thread(target=self.start_loading).start()
@@ -31,17 +34,19 @@ class LoadingView(arcade.View):
     def start_loading(self):
         game_view = GameView()
         for message in game_view.setup(1):
-            self.progress_message = message
-            self.progress += 1
-            time.sleep(0.3)  # to get loading effect in case of fast load
+            if self.progress < self.total:
+                self.progress_message = message
+                self.progress += 1
+                time.sleep(1)  # to get loading effect in case of fast load
+            else:
+                self.progress_message = "Finishing.."
 
         self.window.show_view(game_view)
 
     def on_draw(self):
         arcade.start_render()
         arcade.draw_lrwh_rectangle_textured(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.background)
-        arcade.draw_text("Loading", SCREEN_WIDTH//2, SCREEN_HEIGHT*0.8,
-                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        self.title_text.draw()
 
         arcade.draw_text(self.progress_message, SCREEN_WIDTH//2, SCREEN_HEIGHT*0.6,
                          arcade.color.WHITE, font_size=18, anchor_x="center")
@@ -54,7 +59,7 @@ class LoadingView(arcade.View):
         rectangle_y_down = SCREEN_HEIGHT * 0.45
         rectangle_y_up = SCREEN_HEIGHT * 0.55
 
-        progress_x = SCREEN_WIDTH * (self.progress / self.total) * 0.9 + SCREEN_WIDTH * 0.1
+        progress_x = SCREEN_WIDTH * 0.8 * (self.progress / self.total) + SCREEN_WIDTH * 0.1
 
         points = ((rectangle_x_left, rectangle_y_down),
                   (progress_x, rectangle_y_down),
@@ -69,3 +74,11 @@ class LoadingView(arcade.View):
 
     def on_update(self, delta_time: float):
         self.star.update()
+
+    def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
+        if self.progress < self.total:
+            self.progress_message = "test"
+            self.progress += 1
+            time.sleep(1)  # to get loading effect in case of fast load
+        else:
+            self.progress_message = "Finishing.."
