@@ -16,8 +16,6 @@ class ScrollingSpriteList(arcade.SpriteList):
 
 class FullWidthSpriteList(arcade.SpriteList):
     """"
-    TODO: There is a small offset (example look at mist background image when playing, when it gets repeated there is a
-     small distance between 2 mist images), check what's up
     These sprites will always cover the entire screen width and be dynamically constructed as you
     move viewport around meaning you will get 'infinite' scroll effect.
     """
@@ -47,19 +45,15 @@ class FullWidthSpriteList(arcade.SpriteList):
         """
         :param reference_view_left: Left border position (x) of view.
         """
-        if self[0].center_x > reference_view_left:
+        if self[0].center_x >= reference_view_left:
             # We scrolled left so need to add tile to left and remove from right
-            print("LEFT")
-            print(len(self))
             self.pop()
             sprite = copy(self.base_sprite)
             sprite.center_x = reference_view_left - self[0].width
             sprite.center_y = self.y_coord
             self.insert(0, sprite)
-        elif self[-1].center_x < reference_view_left + SCREEN_WIDTH:
+        elif self[-1].center_x <= reference_view_left + SCREEN_WIDTH:
             # We scrolled right so need to add tile to right and remove from left
-            print("RIGHT")
-            print(len(self))
             self.pop(0)
             sprite = copy(self.base_sprite)
             sprite.center_x = reference_view_left + self[0].width + SCREEN_WIDTH
