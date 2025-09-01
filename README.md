@@ -17,11 +17,16 @@ If I feel like it I might update it in future to add new things.
 
 # Running
 
-Python 3.6 or 3.7 recommended (at the moment of writing don't use anything above 3.7)
+Python 3.7 required, install libs:
 
-All you need is Arcade library, see [install instructions](https://arcade.academy/installation.html)
+> pip install -r requirements.txt
 
 Then run the main.py file
+
+On Linux if you get no sound or some random error for no default device, make sure to install:
+
+ > sudo apt install pulseaudio
+
 
 
 # Map editor
